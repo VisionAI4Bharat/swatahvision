@@ -134,4 +134,4 @@ cv2.imwrite("out.jpg", annotated)
 ```
 ## License
 
-All work under VisionAI4Bhārat is released under permissive open-source licenses (MIT, Apache 2.0, or similar). Each repository or project may use a different license — please check the repository license file.
+This work is licensed under LGPL 3.0
