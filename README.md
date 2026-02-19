@@ -40,7 +40,41 @@ swatahVision provides a unified interface for:
 - ✅ **Production-friendly utilities**: FPS monitor, video readers/writers, batching-ready patterns
 - ✅ **Lightweight & composable**: designed as a stack, not a monolith
 - ✅ **Real world examples and analytics**
+- ✅ **Built-in annotation utilities
+- ✅ **Minimal and clean API
 ---
+## Core Components
+
+
+### Model
+
+    sv.Model(model, engine, hardware)
+
+Handles model loading and inference execution.
+
+### Image API
+
+    image = sv.Image.load_from_file(path)
+    sv.Image.show(image)
+
+### Post Processing
+
+    sv.Classification.from_mobilenet(...)
+    sv.Detections.from_ssd(...)
+
+### Annotation
+
+*   Bounding boxes
+*   Labels
+*   Custom colors
+*   Text positioning
+
+## Design Philosophy
+
+*   Simplicity
+*   Lightweight deployment
+*   Fast prototyping
+*   Developer-friendly workflows
 
 ## Install
 
@@ -98,3 +132,6 @@ annotated = sv.UI.draw_bboxes(
 
 cv2.imwrite("out.jpg", annotated)
 ```
+## License
+
+All work under VisionAI4Bhārat is released under permissive open-source licenses (MIT, Apache 2.0, or similar). Each repository or project may use a different license — please check the repository license file.
