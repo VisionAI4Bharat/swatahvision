@@ -48,3 +48,24 @@ This demo performs human pose estimation using the MoveNet model. It detects 17 
 
     - `--normalize` (optional): Whether to normalize input image before inference.
         Default: `True`
+
+## run example
+
+- movenet onnx for Image
+
+    ```bash
+    python movenet_pose_onnx.py \
+        --source_weights_path data/movenet.onnx \
+        --source_image_path data/sample.jpg \
+        --output_path outputs/pose_output.jpg \
+        --confidence_threshold 0.3
+    ```
+- movenet onnx for Video
+
+    ```bash
+    python movenet_pose_onnx.py \
+        --source_weights_path data/movenet.onnx \
+        --source_video_path data/sample_video.mp4 \
+        --output_path outputs/pose_output.mp4 \
+        --confidence_threshold 0.3
+    ```
