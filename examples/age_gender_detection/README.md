@@ -76,6 +76,6 @@ The model supports single-face inference
 Predictions may vary based on face quality
 
 👨‍💻 Author
-Atharva Kotkar
-Aarav Agarwal 
+-Atharva Kotkar
+-Aarav Agarwal 
 MIT Internship – Swatah AI
