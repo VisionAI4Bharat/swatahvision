@@ -3,15 +3,5 @@ This demo performs human pose estimation using the MoveNet model. It detects 17 
 
 ## Install
 - clone repository and navigate to example directory
-
-git clone https://github.com/VisionAI4Bharat/swatahVision.git
-cd swatahVision/examples/pose_estimation
-
-- setup python environment and activate it [optional]
-
-python3 -m venv venv
-source venv/bin/activate
-
-- install required dependencies
-
-pip install -r requirements.txt
+  git clone https://github.com/VisionAI4Bharat/swatahVision.git
+  cd swatahVision/examples/pose_estimation
