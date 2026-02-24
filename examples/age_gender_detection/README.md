@@ -77,5 +77,5 @@ Predictions may vary based on face quality
 
 👨‍💻 Author
 Atharva Kotkar
-Arav Agrawal 
+Aarav Agarwal 
 MIT Internship – Swatah AI
