@@ -22,3 +22,29 @@ This demo performs human pose estimation using the MoveNet model. It detects 17 
     ```bash
     pip install -r requirements.txt
     ```
+
+## script arguments
+
+- movenet onnx
+
+    - `--source_weights_path` (optional): The path to the MoveNet model file (ONNX / TFLite / TensorFlow SavedModel).
+        Defaults to `"movenet.onnx"` if not specified.
+
+    - `--source_video_path`: The path to the input image or video file for pose estimation.
+        This can be:
+
+        - An image (.jpg, .png)
+
+        - A video (.mp4, .avi)
+
+        - Or camera index (0 for webcam)
+
+    - `--target_video_path` (optional): The path to save the output image or video with pose keypoints drawn.
+        If not provided, the output will be displayed in real-time.
+
+    - `--confidence_threshold` (optional): Sets the minimum keypoint confidence score.
+        Keypoints with confidence below this value will be ignored.
+        Default is `0.3`.
+
+    - `--normalize` (optional): Whether to normalize input image before inference.
+        Default: `True`
