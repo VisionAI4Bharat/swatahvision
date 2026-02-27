@@ -78,6 +78,8 @@ nav:
   - Examples:
       Count People In Zone: examples/count_people_in_zone.md
       Speed Estimation: examples/speed_estimation.md
+      Age Gender: examples/age_gender.md
+      
 
 
 
