@@ -1,111 +1,178 @@
-# Age & Gender Prediction using OpenVINO
+# Age & Gender Prediction using SwatahVision (OpenVINO Backend)
 
 This example demonstrates how to perform **Age and Gender prediction**
-using the **age-gender-recognition-retail-0013** model with  
-**OpenVINO Runtime** through the **SwatahVision** framework.
+using the **`age-gender-recognition-retail-0013`** model through the  
+**SwatahVision framework**, with **OpenVINO as the inference engine**.
 
-The script loads a **cropped face image**, runs inference on CPU,
+The script loads **face images**, runs inference on **CPU**,  
 and prints the predicted **age** and **gender** in the terminal.
 
 ---
 
 ## 📁 Folder Structure
 
+```bash
+age_gender_project/
+├── age-gender-recognition-retail-0013.xml
+├── age-gender-recognition-retail-0013.bin
+├── age_gender_prediction.py
+├── age_gender.md
+└── assets/
+    ├── image_old_man.jpg
+    └── image_boy.jpg
+
 ```
-examples/
-└── age_gender_openvino/
-    ├── age-gender-recognition-retail-0013_openvino.py
-    ├── README.md
-    └── assets/
-        └── face.jpg
+Add cropped face images inside the assets/ folder.
+
+Example file names:
+```bash
+assets/image_old_man.jpg
+
+assets/image_boy.jpg
+```
+✅ Image Guidelines
+
+For best results:
+```bash
+Each image must contain only one face
+
+Face should be:
+
+Front-facing
+
+Well-lit
+
+Clearly visible
+
+Properly cropped
+
+You may use any face images (male or female).
+```
+🔧 Requirements
+```bash
+Python 3.9+
+
+NumPy
+
+OpenCV
+
+SwatahVision
+```
+🔧 Model Link to download:
+```bash
+https://huggingface.co/swatah/swatahvision/tree/main/classifiation/age-gender-recognition-retail-0013
 ```
 
----
+⚠️ Note: OpenVINO is used internally by SwatahVision.
+You do NOT need to write OpenVINO code manually.
 
-## 🖼 Required Input Image
+🧩 Installation
+```bash
+1️⃣ Create and Activate Conda Environment (Recommended)
+conda create -n swatah_env python=3.9 -y
+conda activate swatah_env
 
-- Add **one cropped face image** inside the `assets/` folder
-- Example file name:
-  assets/face.jpg
+2️⃣ Install Required Dependencies
+pip install numpy
+pip install opencv-python
+pip install swatahvision
+```
 
-- The image **must contain only one face**
-- Best results are obtained when the face is:
-- Front-facing
-- Well-lit
-- Clearly visible
+🚀 How to Run
 
-You may use **any face image** (male or female).
+Navigate to your project directory and run:
 
----
+python age_gender_prediction.py
+🧪 Code Explanation
+📦 Import Required Libraries
+```bash
+import swatahvision as sv
+import numpy as np
+import cv2
+🧠 Load Age & Gender Model
+model = sv.Model(
+    model="age-gender-recognition-retail-0013.xml",
+    engine=sv.Engine.OPENVINO,
+    hardware=sv.Hardware.CPU
+)
+Explanation
 
-## 🔧 Requirements
+sv.Engine.OPENVINO → Uses OpenVINO internally
 
-- Python **3.10**
-- OpenVINO **2024.6**
-- NumPy
-- OpenCV
-- SwatahVision
+sv.Hardware.CPU → Runs inference on CPU
+```
+```bash
+🖼 Run Inference on Image
+image = sv.Image.load_from_file("assets/image_old_man.jpg")
+outputs = model(image)[0]
+📤 Extract Model Outputs
+gender_blob = outputs[0]
+age_blob = outputs[1]
 
-## 🧩 Installation
+gender_blob → Gender probabilities
 
-Install the required dependencies:
+age_blob → Normalized age value
+
+👨 Process Gender Output
+gender_id = int(np.argmax(gender_blob))
+gender = "Male" if gender_id == 1 else "Female"
+
+The model returns probabilities in the format:
+
+[Female, Male]
+🎂 Process Age Output
+age = int(age_blob[0][0][0][0] * 100)
+Explanation
+
+The model outputs age as a normalized value (0–1)
+
+It is multiplied by 100 to convert into age in years
+
+⚠️ Age prediction is approximate and may vary slightly.
+```
+
+📤 Output
+
+The script prints the predicted age and gender in the terminal:
+```bash
+Predicted Age   : 62
+Predicted Gender: Male
+
+Predicted Age   : 14
+Predicted Gender: Male
+🧠 Model Information
+Property	Value
+Model Name	age-gender-recognition-retail-0013
+Framework	SwatahVision
+Inference Engine	OpenVINO (internal)
+Hardware	CPU
+Input Size	62 × 62
+Outputs	Age & Gender
+Outputs Details
+
+Age → Normalized regression value × 100
+
+Gender → Probabilities [Female, Male]
+```
+⚠️ Notes
 
 ```bash
-pip install openvino numpy opencv-python
-pip install git+https://github.com/VisionAI4Bharat/swatahVision.git
+This example expects cropped face images
+
+Only single-face inference is supported
+
+Prediction accuracy depends on:
+
+Face alignment
+
+Lighting conditions
+
+Image quality
 ```
 
----
-
-## 🚀 How to Run
-
-Navigate to the example folder and run:
-
+👨‍💻 Author
 ```bash
-python age-gender-recognition-retail-0013_openvino.py
+Aarav Agarwal
+Atharva Kotkar
+MIT Internship – Swatah AI
 ```
-
----
-
-## 📤 Output
-
-The script prints the predicted **age** and **gender** in the terminal:
-
-```text
-🎯 Predicted Age   : 24
-🎯 Predicted Gender: Male
-```
-
-- **Age** is an estimated value  
-- **Gender** is predicted as **Male / Female**
-
----
-
-## 🧠 Model Information
-
-- **Model Name**: `age-gender-recognition-retail-0013`
-- **Framework**: OpenVINO
-- **Input Size**: `62 × 62`
-- **Outputs**:
-  - **Age** → normalized value (multiplied by `100`)
-  - **Gender** → probabilities `[Female, Male]`
-
----
-
-## ⚠️ Notes
-
-- This example expects a **cropped face image**, not a full image
-- The model supports **single-face inference**
-- Predictions may vary depending on:
-  - face alignment
-  - lighting conditions
-  - image quality
-
----
-
-## 👨‍💻 Author
-
-- **Atharva Kotkar**
-- **Aarav Agarwal**  
-- *MIT Internship – Swatah AI*
- 
