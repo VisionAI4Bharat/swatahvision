@@ -39,4 +39,3 @@ age = int(age_blob[0][0][0][0]* 100)
 
 print("Predicted Age   :", age)
 print("Predicted Gender:", gender)
-
