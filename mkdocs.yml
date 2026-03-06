@@ -78,8 +78,9 @@ nav:
   - Examples:
       Count People In Zone: examples/count_people_in_zone.md
       Speed Estimation: examples/speed_estimation.md
+      Pose Estimation: examples/pose_estimation.md
+      Heatmap Tracking: examples/heatmap_tracking.md
+      Time In Zone : examples/time_in_zone.md
+      Object Detection : examples/tracking.md
+      Traffic Analysis: examples/traffic_analysis.md
       Age Gender: examples/age_gender.md
-      
-
-
-

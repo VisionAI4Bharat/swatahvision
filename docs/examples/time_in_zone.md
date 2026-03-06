@@ -1,16 +1,16 @@
-# 📍 Count People in Zone using YOLO (ONNX) + ByteTrack
+# 📍 Time in Zone Analysis using YOLO (ONNX) + ByteTrack
 
-This example demonstrates how to count the number of people inside predefined polygon zones using computer vision.
+This example demonstrates how to calculate **dwell time (time spent in a zone)** using computer vision.
 
-It detects and tracks people in a video and determines how many individuals are present inside each defined zone in real-time.
+It detects and tracks objects in a video and measures how long each tracked object remains inside predefined polygon zones.
 
 This project is ideal for:
 
-- 🏬 Retail store occupancy monitoring
-- 🚪 Entry/exit people counting
-- 🏫 Classroom or hall occupancy tracking
-- 🚧 Restricted area monitoring
-- 🧑‍🤝‍🧑 Crowd density estimation
+- 🛒 Retail analytics (checkout wait time monitoring)
+- 🚦 Traffic management
+- 🏭 Industrial safety zones
+- 🛑 Restricted area monitoring
+- 📊 Queue time analysis
 
 ---
 
@@ -18,29 +18,26 @@ This project is ideal for:
 
 The system:
 
-1. Detects people using a YOLO ONNX model
-2. Tracks individuals using ByteTrack
+1. Detects objects using a YOLO ONNX model
+2. Tracks objects using ByteTrack
 3. Monitors predefined polygon zones
-4. Checks whether a tracked person is inside a zone
-5. Counts the number of people inside each zone
-6. Displays the count in real-time
-7. Saves the annotated output video
-Each zone displays the number of people currently inside it.
+4. Calculates how long each object stays inside each zone
+5. Displays dwell time in real-time
+6. Saves the annotated output video
+
+Each tracked object is labeled as:
+
+```
+#ID MM:SS
+```
 
 Example:
 
 ```
-Zone 1: 5
-Zone 2: 2
+#5 01:24
 ```
 
-Means:
-
-```
-5 people are inside Zone 1
-2 people are inside Zone 2
-```
-The count updates dynamically as people enter or leave the zone.
+Means object ID 5 stayed 1 minute and 24 seconds in the zone.
 
 ---
 
@@ -50,7 +47,7 @@ The count updates dynamically as people enter or leave the zone.
 
 ```bash
 git clone https://github.com/VisionAI4Bharat/swatahvision.git
-cd swatahvision/examples/count_people_in_zone
+cd swatahvision/examples/time_in_zone
 ```
 
 ---
@@ -74,13 +71,13 @@ pip install -r requirements.txt
 
 ## 🎨 Step 1: Draw Custom Zones
 
-Before running people counting, you must define monitoring zones.
+Before running dwell time analysis, you must define monitoring zones.
 
 Use the provided script:
 
 ```bash
 python scripts/draw_zones.py \
-    --source_path "data/input.mp4" \
+    --source_path "data/checkout.mp4" \
     --zone_configuration_path "data/config.json"
 ```
 
@@ -107,14 +104,14 @@ Each polygon represents one monitoring zone.
 
 ---
 
-## 🧠 Step 2: Run People Counting
+## 🧠 Step 2: Run Time-in-Zone Analysis
 
 Run the detection and tracking script:
 
 ```bash
 python yolov11x-1280_onnx.py \
     --zone_configuration_path "data/config.json" \
-    --source_video_path "data/input.mp4" \
+    --source_video_path "data/checkout.mp4" \
     --source_weights_path "yolov11x-1280.onnx" \
     --classes 0 \
     --confidence_threshold 0.3 \
@@ -147,10 +144,10 @@ Example:
 ```bash
 --classes 0
 ```
-Class 0 corresponds to person detection in most YOLO models.
+
 If empty, all detected classes are tracked.
 
-`--confidence_threshold`
+`--confidence_threshold`  
 Detection confidence threshold.  
 Default: `0.3`
 
@@ -166,26 +163,28 @@ Processing Pipeline:
 
 1. Load YOLO ONNX model
 2. Read video frames
-3. Run object detection 
-4. Filter selected classes (typically person)
+3. Run object detection
+4. Filter selected classes
 5. Apply ByteTrack multi-object tracking
-6. Compute the center point of each tracked object
-7. Check if object center lies inside polygon zone
-8. Count number of people inside each zone
-9. Display counts on the video
-10. Save the output video
+6. Check if object center lies inside polygon zone
+7. Count frames inside zone
+8. Convert frame count to seconds using FPS
+9. Display timer on video
+10. Save output video
 
 ---
 
-## 👥 People Counting Logic
+## ⏱ Dwell Time Calculation
 
-People counting is performed by checking whether the center point of a tracked bounding box lies inside a polygon zone.
+Time is calculated using video frame rate:
 
-If the center point lies inside the zone, the person is counted as present in that zone.
+```
+time_seconds = frame_count / FPS
+```
 
-The count updates continuously for each frame.
+The timer updates continuously while the object remains inside the zone.
 
-If a person leaves the zone, the count decreases automatically.
+If the object leaves the zone, timing stops.
 
 ---
 
@@ -195,9 +194,9 @@ The output video contains:
 
 - Drawn polygon zones
 - Tracked object IDs
-- Real-time people count per zone
-- Bounding boxes around detected people
-- Saved annotated output video
+- Real-time dwell time counter
+- Color-coded zones
+- Saved output video file
 
 ---
 
@@ -222,12 +221,13 @@ yolo export model=yolov8x.pt format=onnx imgsz=1280
 
 ## 🎯 Practical Applications
 
-- Retail store occupancy monitoring
-- Crowd density analysis
-- Smart building management
-- Security restricted-area monitoring
-- Event crowd management
-- Smart city pedestrian analytics
+- Checkout wait time monitoring
+- Customer behavior analytics
+- Smart traffic signal timing
+- Industrial hazard zone tracking
+- Security restricted-area alerts
+- Queue performance monitoring
+
 ---
 
 ## 📌 Notes
@@ -237,4 +237,6 @@ yolo export model=yolov8x.pt format=onnx imgsz=1280
 - Supports multiple zones
 - Supports multiple object classes
 - Works best with fixed camera footage
+
 ---
+
