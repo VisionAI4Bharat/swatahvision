@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../box/">
+        <link rel="prev" href="../heatmap/">
       
       
-        <link rel="next" href="../heatmap/">
+        <link rel="next" href="../../trackers/bytetrack/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Label - swatahVision</title>
+        <title>Trace - swatahVision</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#label-annotator" class="md-skip">
+        <a href="#trace-annotator" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Label
+              Trace
             
           </span>
         </div>
@@ -715,6 +715,62 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../label/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Label
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../heatmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HeatMap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -734,7 +790,7 @@
   <span class="md-ellipsis">
     
   
-    Label
+    Trace
   
 
     
@@ -752,7 +808,7 @@
   <span class="md-ellipsis">
     
   
-    Label
+    Trace
   
 
     
@@ -792,62 +848,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../heatmap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    HeatMap
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trace/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trace
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1402,49 +1402,44 @@
   
 
 
-<h1 id="label-annotator">Label Annotator</h1>
+<h1 id="trace-annotator">Trace Annotator</h1>
 <h2 id="overview">Overview</h2>
-<p>The <strong>LabelAnnotator</strong> is used to display text labels on detected objects in an image or video frame.<br />
-It places a <strong>text label with a background box</strong> near each detection bounding box.</p>
-<p>Labels typically contain information such as:</p>
+<p>The <strong>TraceAnnotator</strong> is used to visualize the movement path of tracked objects across video frames.<br />
+It draws <strong>trace lines</strong> showing where an object has traveled based on its <strong>tracker ID</strong>.</p>
+<p>This annotator is useful for:</p>
 <ul>
-<li>Object class name</li>
-<li>Confidence score</li>
-<li>Tracker ID</li>
-<li>Custom text</li>
+<li>Object tracking visualization</li>
+<li>Motion analysis</li>
+<li>Sports analytics</li>
+<li>Surveillance systems</li>
+<li>Traffic monitoring</li>
 </ul>
-<p>This annotator is commonly used in <strong>object detection and tracking visualization pipelines</strong>.</p>
+<p>The trace is generated using the <strong>historical positions of tracked detections</strong>.</p>
 <hr />
-<h1 id="class-labelannotator">Class: <code>LabelAnnotator</code></h1>
-<p>The <code>LabelAnnotator</code> class extends <code>_BaseLabelAnnotator</code> and provides functionality to draw labels on detected objects.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LabelAnnotator</span><span class="p">(</span><span class="n">_BaseLabelAnnotator</span><span class="p">)</span>
+<h1 id="class-traceannotator">Class: <code>TraceAnnotator</code></h1>
+<p>The <code>TraceAnnotator</code> class extends <code>BaseAnnotator</code> and is responsible for drawing trace paths for tracked objects.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TraceAnnotator</span><span class="p">(</span><span class="n">BaseAnnotator</span><span class="p">)</span>
 </code></pre></div>
-<p>It supports customizable:</p>
-<ul>
-<li>Text appearance</li>
-<li>Background color</li>
-<li>Label positioning</li>
-<li>Smart overlap avoidance</li>
-<li>Multi-line labels</li>
-</ul>
+<p>It uses <strong>tracker IDs</strong> from the <code>Detections</code> object to associate positions across frames.</p>
+<hr />
+<h1 id="requirements">Requirements</h1>
+<p>This annotator <strong>requires object tracking</strong>.</p>
+<p>The <code>Detections</code> object must contain:</p>
+<div class="highlight"><pre><span></span><code>detections.tracker_id
+</code></pre></div>
+<p>If <code>tracker_id</code> is missing, the annotator will raise an error.</p>
 <hr />
 <h1 id="constructor">Constructor</h1>
-<div class="highlight"><pre><span></span><code><span class="n">LabelAnnotator</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">TraceAnnotator</span><span class="p">(</span>
     <span class="n">color</span><span class="o">=</span><span class="n">ColorPalette</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">,</span>
-    <span class="n">color_lookup</span><span class="o">=</span><span class="n">ColorLookup</span><span class="o">.</span><span class="n">CLASS</span><span class="p">,</span>
-    <span class="n">text_color</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">WHITE</span><span class="p">,</span>
-    <span class="n">text_scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">text_thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">text_padding</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">text_position</span><span class="o">=</span><span class="n">Position</span><span class="o">.</span><span class="n">TOP_LEFT</span><span class="p">,</span>
-    <span class="n">text_offset</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
-    <span class="n">border_radius</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">smart_position</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">max_line_length</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">position</span><span class="o">=</span><span class="n">Position</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span>
+    <span class="n">trace_length</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">smooth</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">color_lookup</span><span class="o">=</span><span class="n">ColorLookup</span><span class="o">.</span><span class="n">CLASS</span>
 <span class="p">)</span>
 </code></pre></div>
-<hr />
-<h1 id="parameters">Parameters</h1>
+<h2 id="parameters">Parameters</h2>
 <table>
 <thead>
 <tr>
@@ -1457,63 +1452,37 @@ It places a <strong>text label with a background box</strong> near each detectio
 <tr>
 <td><code>color</code></td>
 <td><code>Color \| ColorPalette</code></td>
-<td>Background color for label box</td>
+<td>Color used for the trace line</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td><code>Position</code></td>
+<td>Anchor position used for trace calculation</td>
+</tr>
+<tr>
+<td><code>trace_length</code></td>
+<td><code>int</code></td>
+<td>Maximum number of historical points stored for each object</td>
+</tr>
+<tr>
+<td><code>thickness</code></td>
+<td><code>int</code></td>
+<td>Thickness of the trace line</td>
+</tr>
+<tr>
+<td><code>smooth</code></td>
+<td><code>bool</code></td>
+<td>Enables spline smoothing for the trace</td>
 </tr>
 <tr>
 <td><code>color_lookup</code></td>
 <td><code>ColorLookup</code></td>
-<td>Strategy for mapping colors</td>
-</tr>
-<tr>
-<td><code>text_color</code></td>
-<td><code>Color \| ColorPalette</code></td>
-<td>Color used for label text</td>
-</tr>
-<tr>
-<td><code>text_scale</code></td>
-<td><code>float</code></td>
-<td>Font size scale</td>
-</tr>
-<tr>
-<td><code>text_thickness</code></td>
-<td><code>int</code></td>
-<td>Thickness of text characters</td>
-</tr>
-<tr>
-<td><code>text_padding</code></td>
-<td><code>int</code></td>
-<td>Padding around text inside label box</td>
-</tr>
-<tr>
-<td><code>text_position</code></td>
-<td><code>Position</code></td>
-<td>Position of label relative to bounding box</td>
-</tr>
-<tr>
-<td><code>text_offset</code></td>
-<td><code>(int, int)</code></td>
-<td>Offset applied to label position</td>
-</tr>
-<tr>
-<td><code>border_radius</code></td>
-<td><code>int</code></td>
-<td>Radius for rounded label box corners</td>
-</tr>
-<tr>
-<td><code>smart_position</code></td>
-<td><code>bool</code></td>
-<td>Automatically reposition labels to avoid overlap</td>
-</tr>
-<tr>
-<td><code>max_line_length</code></td>
-<td><code>int \| None</code></td>
-<td>Maximum characters per line before wrapping</td>
+<td>Strategy for assigning colors</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h1 id="color-lookup-strategies">Color Lookup Strategies</h1>
-<p>Label colors can be determined using different strategies.</p>
+<h1 id="color-lookup-options">Color Lookup Options</h1>
 <table>
 <thead>
 <tr>
@@ -1538,10 +1507,9 @@ It places a <strong>text label with a background box</strong> near each detectio
 </table>
 <hr />
 <h1 id="method-annotate">Method: <code>annotate</code></h1>
-<div class="highlight"><pre><span></span><code><span class="n">annotate</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span> <span class="n">detections</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">custom_color_lookup</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">annotate</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span> <span class="n">detections</span><span class="p">,</span> <span class="n">custom_color_lookup</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-<p>Adds labels to detected objects in the provided image.</p>
-<hr />
+<p>Draws the trace path on the given frame.</p>
 <h2 id="parameters_1">Parameters</h2>
 <table>
 <thead>
@@ -1560,12 +1528,7 @@ It places a <strong>text label with a background box</strong> near each detectio
 <tr>
 <td><code>detections</code></td>
 <td><code>Detections</code></td>
-<td>Detection results containing bounding boxes</td>
-</tr>
-<tr>
-<td><code>labels</code></td>
-<td><code>list[str]</code></td>
-<td>Custom label text for each detection</td>
+<td>Detection results containing bounding boxes and tracker IDs</td>
 </tr>
 <tr>
 <td><code>custom_color_lookup</code></td>
@@ -1574,114 +1537,97 @@ It places a <strong>text label with a background box</strong> near each detectio
 </tr>
 </tbody>
 </table>
-<hr />
 <h2 id="returns">Returns</h2>
-<p>Annotated image containing labels.</p>
+<p>Annotated image with trace lines.</p>
 <div class="highlight"><pre><span></span><code>numpy.ndarray or PIL.Image.Image
 </code></pre></div>
 <hr />
-<h1 id="how-label-annotation-works">How Label Annotation Works</h1>
+<h1 id="how-trace-works">How Trace Works</h1>
 <ol>
-<li>The detection bounding boxes are obtained.</li>
-<li>Anchor coordinates are calculated based on <code>text_position</code>.</li>
-<li>Label text size is computed using OpenCV.</li>
-<li>A background box is created for the label.</li>
-<li>The label text is drawn on the image.</li>
+<li>Object detections are received from the model.</li>
+<li>Each detection is associated with a <strong>tracker ID</strong>.</li>
+<li>Historical positions for each tracker ID are stored.</li>
+<li>Lines are drawn between stored positions to create a trace path.</li>
 </ol>
 <hr />
-<h1 id="smart-positioning">Smart Positioning</h1>
-<p>When <code>smart_position=True</code>, the annotator attempts to <strong>prevent label overlap</strong> by spreading label boxes.</p>
-<p>It uses internal utilities such as:</p>
-<div class="highlight"><pre><span></span><code>spread_out_boxes
-snap_boxes
+<h1 id="trace-smoothing">Trace Smoothing</h1>
+<p>If <code>smooth=True</code>, the trace path is smoothed using <strong>B-spline interpolation</strong> from <code>scipy</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">splprep</span>
+<span class="n">splev</span>
 </code></pre></div>
-<p>This ensures labels remain readable even when many detections appear close together.</p>
-<hr />
-<h1 id="multi-line-labels">Multi-Line Labels</h1>
-<p>Long labels can be automatically wrapped.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>Person
-Confidence: 0.92
-</code></pre></div>
-<p>This is controlled using:</p>
-<div class="highlight"><pre><span></span><code>max_line_length
-</code></pre></div>
+<p>This produces smoother curves instead of straight line segments.</p>
 <hr />
 <h1 id="example-usage">Example Usage</h1>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">swatahvision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 
-<span class="n">image</span> <span class="o">=</span> <span class="o">...</span>
-<span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">&quot;yolov8x.pt&quot;</span><span class="p">)</span>
 
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">confidence</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">confidence</span>
-    <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">detections</span><span class="p">[</span><span class="s1">&#39;class_name&#39;</span><span class="p">],</span> <span class="n">detections</span><span class="o">.</span><span class="n">confidence</span><span class="p">)</span>
-<span class="p">]</span>
+<span class="n">trace_annotator</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">TraceAnnotator</span><span class="p">()</span>
 
-<span class="n">label_annotator</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">LabelAnnotator</span><span class="p">(</span>
-    <span class="n">text_position</span><span class="o">=</span><span class="n">sv</span><span class="o">.</span><span class="n">Position</span><span class="o">.</span><span class="n">CENTER</span>
-<span class="p">)</span>
+<span class="n">tracker</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">ByteTrack</span><span class="p">()</span>
 
-<span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">label_annotator</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-    <span class="n">scene</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
-    <span class="n">detections</span><span class="o">=</span><span class="n">detections</span><span class="p">,</span>
-    <span class="n">labels</span><span class="o">=</span><span class="n">labels</span>
-<span class="p">)</span>
+<span class="n">video_info</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">VideoInfo</span><span class="o">.</span><span class="n">from_video_path</span><span class="p">(</span><span class="n">video_path</span><span class="o">=</span><span class="s2">&quot;input.mp4&quot;</span><span class="p">)</span>
+
+<span class="n">frames_generator</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">get_video_frames_generator</span><span class="p">(</span><span class="n">source_path</span><span class="o">=</span><span class="s2">&quot;input.mp4&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">sv</span><span class="o">.</span><span class="n">VideoSink</span><span class="p">(</span><span class="n">target_path</span><span class="o">=</span><span class="s2">&quot;output.mp4&quot;</span><span class="p">,</span> <span class="n">video_info</span><span class="o">=</span><span class="n">video_info</span><span class="p">)</span> <span class="k">as</span> <span class="n">sink</span><span class="p">:</span>
+
+    <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames_generator</span><span class="p">:</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="o">.</span><span class="n">from_ultralytics</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="n">detections</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">update_with_detections</span><span class="p">(</span><span class="n">detections</span><span class="p">)</span>
+
+        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">trace_annotator</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+            <span class="n">scene</span><span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+            <span class="n">detections</span><span class="o">=</span><span class="n">detections</span>
+        <span class="p">)</span>
+
+        <span class="n">sink</span><span class="o">.</span><span class="n">write_frame</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="n">annotated_frame</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h1 id="example-output">Example Output</h1>
-<p>The annotator draws a <strong>text label with a colored background</strong>.</p>
+<p>The annotator will draw a line showing the <strong>movement path of each tracked object</strong> across frames.</p>
 <p>Example visualization:</p>
-<div class="highlight"><pre><span></span><code>┌─────────────┐
-│ Person 0.92 │
-└─────────────┘
+<div class="highlight"><pre><span></span><code>Object Path
+   ●────●────●────●
 </code></pre></div>
-<p>Positioned near the detection bounding box.</p>
-<hr />
-<h1 id="rounded-label-boxes">Rounded Label Boxes</h1>
-<p>If <code>border_radius &gt; 0</code>, the background label box will have rounded edges.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>LabelAnnotator(border_radius=10)
-</code></pre></div>
+<p>Each object keeps its own trace based on its <strong>tracker ID</strong>.</p>
 <hr />
 <h1 id="error-handling">Error Handling</h1>
-<h3 id="invalid-label-count">Invalid Label Count</h3>
-<p>If the number of labels does not match the number of detections:</p>
-<div class="highlight"><pre><span></span><code>ValueError
+<h3 id="missing-tracker-id">Missing Tracker ID</h3>
+<p>If the <code>Detections</code> object does not contain tracker IDs:</p>
+<div class="highlight"><pre><span></span><code>ValueError: The tracker_id field is missing in the provided detections
 </code></pre></div>
-<p>This prevents mismatched annotations.</p>
+<p>Tracking must be enabled before using this annotator.</p>
 <hr />
 <h1 id="dependencies">Dependencies</h1>
-<p>The LabelAnnotator relies on:</p>
+<p>The TraceAnnotator relies on the following modules:</p>
 <ul>
 <li>OpenCV (<code>cv2</code>)</li>
 <li>NumPy</li>
-<li>SwatahVision geometry utilities</li>
-<li>SwatahVision detection modules</li>
+<li>SciPy</li>
+<li>SwatahVision detection and drawing modules</li>
 </ul>
 <hr />
 <h1 id="summary">Summary</h1>
-<p>The <strong>LabelAnnotator</strong> provides a flexible way to add text labels to detection results.</p>
+<p>The <strong>TraceAnnotator</strong> provides an easy way to visualize object movement over time.</p>
 <p>Key features:</p>
 <ul>
-<li>Customizable label appearance</li>
-<li>Multi-line text support</li>
-<li>Smart label positioning</li>
-<li>Color mapping strategies</li>
-<li>Rounded label backgrounds</li>
+<li>Draws historical object paths</li>
+<li>Works with tracking pipelines</li>
+<li>Supports color customization</li>
+<li>Optional smooth curves</li>
+<li>Compatible with video processing pipelines</li>
 </ul>
-<p>It is commonly used together with:</p>
-<ul>
-<li><code>BoxAnnotator</code></li>
-<li><code>TraceAnnotator</code></li>
-<li><code>HeatMapAnnotator</code></li>
-</ul>
-<p>to build complete <strong>visualization pipelines for computer vision models</strong>.</p>
+<p>This annotator is particularly useful for applications involving <strong>object tracking and motion visualization</strong>.</p>
 <hr />
 <h2 id="author">👨‍💻 Author</h2>
 <ul>
-<li><strong>Atharva Kotkar</strong>  </li>
+<li><strong>Atharva Kotkar</strong>    </li>
 </ul>
 
 

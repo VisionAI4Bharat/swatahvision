@@ -12,22 +12,25 @@
         <link rel="prev" href="../../classification/core/">
       
       
-        <link rel="next" href="../../utils/image/">
+        <link rel="next" href="../../../model_zoo/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/fav.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Detection - SwatahVision</title>
+        <title>Detection - swatahVision</title>
       
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -41,8 +44,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -55,13 +58,25 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#detections-core-api" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -73,10 +88,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="SwatahVision" class="md-header__button md-logo" aria-label="SwatahVision" data-md-component="logo">
+    <a href="../../.." title="swatahVision" class="md-header__button md-logo" aria-label="swatahVision" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -87,7 +101,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            SwatahVision
+            swatahVision
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -99,6 +113,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -147,7 +187,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/VisionAI4Bharat/swatahvision" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/VisionAI4Bharat/swatahVision" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -219,28 +259,17 @@
   
   
   
-    
-    
-      
-  
-  
+    <li class="md-tabs__item">
+      <a href="../../../model_zoo/" class="md-tabs__link">
+        
   
   
     
-    
-      <li class="md-tabs__item">
-        <a href="../../../model_zoo/classificaion/imagenet/" class="md-tabs__link">
-          
-  
   
   Model Zoo
 
-        </a>
-      </li>
-    
-  
-
-    
+      </a>
+    </li>
   
 
       
@@ -346,17 +375,16 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="SwatahVision" class="md-nav__button md-logo" aria-label="SwatahVision" data-md-component="logo">
+    <a href="../../.." title="swatahVision" class="md-nav__button md-logo" aria-label="swatahVision" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
-    SwatahVision
+    swatahVision
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/VisionAI4Bharat/swatahvision" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/VisionAI4Bharat/swatahVision" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -554,6 +582,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -577,125 +607,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Utils
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Utils
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../utils/image/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Image
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../utils/video/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Video
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -709,25 +620,9 @@
   
   
   
-    
-    
-    
-    
-      
-      
+    <li class="md-nav__item">
+      <a href="../../../model_zoo/" class="md-nav__link">
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
   
   
   <span class="md-ellipsis">
@@ -741,343 +636,7 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Model Zoo
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Classification
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Classification
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../model_zoo/classificaion/imagenet/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    ImageNet
-  
-
-    
-  </span>
-  
-  
-
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Detection
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Detection
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../model_zoo/detection/coco/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    COCO
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Human
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Human
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../model_zoo/human/face_detection/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Face Detection
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../model_zoo/human/emotion_detection/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Emotion Detection
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../model_zoo/human/pose_estimation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Pose Estimation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1205,6 +764,34 @@
     
   
     HeatMap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../annotators/trace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trace
   
 
     
@@ -1420,34 +1007,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../runtime/tflite/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tflite
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1563,6 +1122,174 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/pose_estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pose Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/heatmap_tracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Heatmap Tracking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/time_in_zone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time In Zone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/tracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/traffic_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traffic Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/age_gender/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Age Gender
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1587,6 +1314,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1606,9 +1335,330 @@
   
 
 
-  <h1>Detection</h1>
+<h1 id="detections-core-api">Detections Core API</h1>
+<p>This document explains how the <strong>Detections class</strong> in <strong>SwatahVision</strong> works.</p>
+<p>The <code>Detections</code> class is the <strong>core data structure used for object detection results</strong>.<br />
+It stores information about detected objects such as:</p>
+<ul>
+<li>Bounding boxes</li>
+<li>Confidence scores</li>
+<li>Class IDs</li>
+<li>Segmentation masks</li>
+<li>Tracking IDs</li>
+<li>Additional metadata</li>
+</ul>
+<p>It also provides utilities for:</p>
+<ul>
+<li>Filtering detections</li>
+<li>Non-Maximum Suppression (NMS)</li>
+<li>Non-Maximum Merging (NMM)</li>
+<li>Merging detections from multiple models</li>
+<li>Accessing anchor positions of objects</li>
+</ul>
+<hr />
+<h1 id="installation">Installation</h1>
+<p>Install the required libraries.</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>swatahvision
+pip<span class="w"> </span>install<span class="w"> </span>numpy
+pip<span class="w"> </span>install<span class="w"> </span>opencv-python
+</code></pre></div>
+<hr />
+<h1 id="import-libraries">Import Libraries</h1>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">swatahvision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</code></pre></div>
+<hr />
+<h1 id="what-is-the-detections-class">What is the <code>Detections</code> Class?</h1>
+<p>The <code>Detections</code> class stores information about detected objects.</p>
+<p>Each detection may contain:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xyxy</code></td>
+<td>Bounding box coordinates <code>[x1, y1, x2, y2]</code></td>
+</tr>
+<tr>
+<td><code>confidence</code></td>
+<td>Detection confidence score</td>
+</tr>
+<tr>
+<td><code>class_id</code></td>
+<td>Predicted object class</td>
+</tr>
+<tr>
+<td><code>mask</code></td>
+<td>Segmentation mask (optional)</td>
+</tr>
+<tr>
+<td><code>tracker_id</code></td>
+<td>Object tracking ID (optional)</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>Additional user data</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td>Extra information</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="creating-a-detections-object">Creating a Detections Object</h1>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">swatahvision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
 
+<span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="p">(</span>
+    <span class="n">xyxy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">220</span><span class="p">]]),</span>
+    <span class="n">confidence</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.89</span><span class="p">]),</span>
+    <span class="n">class_id</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="n">detections</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h1 id="creating-detections-from-model-outputs">Creating Detections from Model Outputs</h1>
+<p>SwatahVision provides helper methods to convert model outputs.</p>
+<h2 id="yolo">YOLO</h2>
+<div class="highlight"><pre><span></span><code><span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="o">.</span><span class="n">from_yolo</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<p>This converts YOLO predictions into a <code>Detections</code> object.</p>
+<p>Parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outputs</code></td>
+<td>Raw model output</td>
+</tr>
+<tr>
+<td><code>conf_threshold</code></td>
+<td>Minimum confidence score</td>
+</tr>
+<tr>
+<td><code>nms_threshold</code></td>
+<td>Optional NMS threshold</td>
+</tr>
+<tr>
+<td><code>class_agnostic</code></td>
+<td>Ignore class IDs during NMS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ssd">SSD</h2>
+<div class="highlight"><pre><span></span><code><span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="o">.</span><span class="n">from_ssd</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<p>This converts SSD predictions into structured detections.</p>
+<hr />
+<h2 id="retinanet">RetinaNet</h2>
+<div class="highlight"><pre><span></span><code><span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="o">.</span><span class="n">from_retinanet</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<p>This converts RetinaNet predictions into <code>Detections</code>.</p>
+<hr />
+<h1 id="iterating-through-detections">Iterating Through Detections</h1>
+<p>You can loop through all detections.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">xyxy</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">confidence</span><span class="p">,</span> <span class="n">class_id</span><span class="p">,</span> <span class="n">tracker_id</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">detections</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Box:&quot;</span><span class="p">,</span> <span class="n">xyxy</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confidence:&quot;</span><span class="p">,</span> <span class="n">confidence</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Class:&quot;</span><span class="p">,</span> <span class="n">class_id</span><span class="p">)</span>
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>Box: [45 60 210 220]
+Confidence: 0.91
+Class: 2
+</code></pre></div>
+<hr />
+<h1 id="get-number-of-detections">Get Number of Detections</h1>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">detections</span><span class="p">))</span>
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div>
+<hr />
+<h1 id="access-specific-detections">Access Specific Detections</h1>
+<p>Get the first detection:</p>
+<div class="highlight"><pre><span></span><code><span class="n">first</span> <span class="o">=</span> <span class="n">detections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p>Get first 10 detections:</p>
+<div class="highlight"><pre><span></span><code><span class="n">subset</span> <span class="o">=</span> <span class="n">detections</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<p>Filter detections:</p>
+<div class="highlight"><pre><span></span><code><span class="n">high_conf</span> <span class="o">=</span> <span class="n">detections</span><span class="p">[</span><span class="n">detections</span><span class="o">.</span><span class="n">confidence</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">]</span>
+</code></pre></div>
+<p>Filter by class:</p>
+<div class="highlight"><pre><span></span><code><span class="n">persons</span> <span class="o">=</span> <span class="n">detections</span><span class="p">[</span><span class="n">detections</span><span class="o">.</span><span class="n">class_id</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<hr />
+<h1 id="adding-custom-data">Adding Custom Data</h1>
+<p>You can attach additional information.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">detections</span><span class="p">[</span><span class="s2">&quot;names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;car&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;bicycle&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>This stores extra metadata inside the detection object.</p>
+<hr />
+<h1 id="checking-empty-detections">Checking Empty Detections</h1>
+<p>Create empty detections:</p>
+<div class="highlight"><pre><span></span><code><span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+</code></pre></div>
+<p>Check if empty:</p>
+<div class="highlight"><pre><span></span><code><span class="n">detections</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h1 id="merging-detections">Merging Detections</h1>
+<p>You can combine multiple detection sets.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">merged</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">detections1</span><span class="p">,</span> <span class="n">detections2</span><span class="p">])</span>
+</code></pre></div>
+<p>This is useful when using <strong>multiple detection models</strong>.</p>
+<p>Example result:</p>
+<div class="highlight"><pre><span></span><code>Original model 1 detections : 3
+Original model 2 detections : 2
+
+Merged detections : 5
+</code></pre></div>
+<hr />
+<h1 id="non-maximum-suppression-nms">Non-Maximum Suppression (NMS)</h1>
+<p>Object detection models may detect the same object multiple times.</p>
+<p>NMS removes duplicate detections.</p>
+<div class="highlight"><pre><span></span><code><span class="n">filtered</span> <span class="o">=</span> <span class="n">detections</span><span class="o">.</span><span class="n">with_nms</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<p>Parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>threshold</code></td>
+<td>IoU threshold</td>
+</tr>
+<tr>
+<td><code>class_agnostic</code></td>
+<td>Ignore class IDs</td>
+</tr>
+<tr>
+<td><code>overlap_metric</code></td>
+<td>Overlap metric (IOU or IOS)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="non-maximum-merging-nmm">Non-Maximum Merging (NMM)</h1>
+<p>NMM merges overlapping detections instead of removing them.</p>
+<div class="highlight"><pre><span></span><code><span class="n">merged</span> <span class="o">=</span> <span class="n">detections</span><span class="o">.</span><span class="n">with_nmm</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+<p>This combines multiple overlapping boxes into one larger detection.</p>
+<hr />
+<h1 id="getting-anchor-coordinates">Getting Anchor Coordinates</h1>
+<p>You can get anchor positions inside bounding boxes.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">swatahvision.geometry.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Position</span>
+
+<span class="n">centers</span> <span class="o">=</span> <span class="n">detections</span><span class="o">.</span><span class="n">get_anchors_coordinates</span><span class="p">(</span><span class="n">Position</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
+</code></pre></div>
+<p>Supported anchor positions:</p>
+<table>
+<thead>
+<tr>
+<th>Anchor</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CENTER</code></td>
+<td>center of box</td>
+</tr>
+<tr>
+<td><code>TOP_LEFT</code></td>
+<td>top left corner</td>
+</tr>
+<tr>
+<td><code>TOP_RIGHT</code></td>
+<td>top right corner</td>
+</tr>
+<tr>
+<td><code>BOTTOM_LEFT</code></td>
+<td>bottom left corner</td>
+</tr>
+<tr>
+<td><code>BOTTOM_RIGHT</code></td>
+<td>bottom right corner</td>
+</tr>
+<tr>
+<td><code>CENTER_LEFT</code></td>
+<td>left center</td>
+</tr>
+<tr>
+<td><code>CENTER_RIGHT</code></td>
+<td>right center</td>
+</tr>
+<tr>
+<td><code>BOTTOM_CENTER</code></td>
+<td>bottom center</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="example-full-workflow">Example Full Workflow</h1>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">swatahvision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;yolov8n.xml&quot;</span><span class="p">,</span>
+    <span class="n">engine</span><span class="o">=</span><span class="n">sv</span><span class="o">.</span><span class="n">Engine</span><span class="o">.</span><span class="n">OPENVINO</span><span class="p">,</span>
+    <span class="n">hardware</span><span class="o">=</span><span class="n">sv</span><span class="o">.</span><span class="n">Hardware</span><span class="o">.</span><span class="n">CPU</span>
+<span class="p">)</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">load_from_file</span><span class="p">(</span><span class="s2">&quot;image.jpg&quot;</span><span class="p">)</span>
+
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+<span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="o">.</span><span class="n">from_yolo</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">detections</span> <span class="o">=</span> <span class="n">detections</span><span class="o">.</span><span class="n">with_nms</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">confidence</span><span class="p">,</span> <span class="n">class_id</span><span class="p">,</span> <span class="n">tracker_id</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">detections</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Object:&quot;</span><span class="p">,</span> <span class="n">class_id</span><span class="p">,</span> <span class="s2">&quot;Confidence:&quot;</span><span class="p">,</span> <span class="n">confidence</span><span class="p">)</span>
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>Object: 2 Confidence: 0.91
+Object: 0 Confidence: 0.87
+</code></pre></div>
+<hr />
+<h1 id="summary">Summary</h1>
+<p>The <code>Detections</code> class is the <strong>core structure used by SwatahVision for object detection results</strong>.</p>
+<p>It helps developers to:</p>
+<ul>
+<li>Store detection results</li>
+<li>Convert model outputs</li>
+<li>Filter detections</li>
+<li>Remove duplicate detections</li>
+<li>Merge results from multiple models</li>
+<li>Access bounding box positions</li>
+</ul>
+<p>This makes it easier to build <strong>computer vision pipelines for real-world applications</strong>.</p>
+<hr />
+<h1 id="authors">Authors</h1>
+<p><strong>Atharva Kotkar</strong><br />
+<strong>Aarav Agrawal</strong><br />
+MIT Internship – Swatah AI</p>
 
 
 
@@ -1631,24 +1681,22 @@
         
       </main>
       
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+<footer style="
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+    background:#15346B;
+    color:white;
+">
+    © 2026 
+    <a href="https://swatah.ai"
+       target="_blank"
+       style="color:#4FA8C6; text-decoration:none; font-weight:600;">
+       swatah.ai
     </a>
-  
-</div>
-      
-    </div>
-  </div>
+    - Inspiring Intelligence
 </footer>
-      
+
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
