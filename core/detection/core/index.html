@@ -193,7 +193,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
-    VisionAI4Bharat/SwatahVision
+    VisionAI4Bharat/swatahVision
   </div>
 </a>
       </div>
@@ -390,7 +390,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
-    VisionAI4Bharat/SwatahVision
+    VisionAI4Bharat/swatahVision
   </div>
 </a>
     </div>
@@ -1336,7 +1336,7 @@
 
 
 <h1 id="detections-core-api">Detections Core API</h1>
-<p>This document explains how the <strong>Detections class</strong> in <strong>SwatahVision</strong> works.</p>
+<p>This document explains how the <strong>Detections class</strong> in <strong>swatahVision</strong> works.</p>
 <p>The <code>Detections</code> class is the <strong>core data structure used for object detection results</strong>.<br />
 It stores information about detected objects such as:</p>
 <ul>
@@ -1358,13 +1358,13 @@ It stores information about detected objects such as:</p>
 <hr />
 <h1 id="installation">Installation</h1>
 <p>Install the required libraries.</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>swatahvision
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>swatahVision
 pip<span class="w"> </span>install<span class="w"> </span>numpy
 pip<span class="w"> </span>install<span class="w"> </span>opencv-python
 </code></pre></div>
 <hr />
 <h1 id="import-libraries">Import Libraries</h1>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">swatahvision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">swatahVision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </code></pre></div>
 <hr />
@@ -1413,7 +1413,7 @@ pip<span class="w"> </span>install<span class="w"> </span>opencv-python
 <h1 id="creating-a-detections-object">Creating a Detections Object</h1>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">swatahvision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">swatahVision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
 
 <span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="p">(</span>
     <span class="n">xyxy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">220</span><span class="p">]]),</span>
@@ -1425,7 +1425,7 @@ pip<span class="w"> </span>install<span class="w"> </span>opencv-python
 </code></pre></div>
 <hr />
 <h1 id="creating-detections-from-model-outputs">Creating Detections from Model Outputs</h1>
-<p>SwatahVision provides helper methods to convert model outputs.</p>
+<p>swatahVision provides helper methods to convert model outputs.</p>
 <h2 id="yolo">YOLO</h2>
 <div class="highlight"><pre><span></span><code><span class="n">detections</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Detections</span><span class="o">.</span><span class="n">from_yolo</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div>
@@ -1568,7 +1568,7 @@ Merged detections : 5
 <h1 id="getting-anchor-coordinates">Getting Anchor Coordinates</h1>
 <p>You can get anchor positions inside bounding boxes.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">swatahvision.geometry.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Position</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">swatahVision.geometry.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Position</span>
 
 <span class="n">centers</span> <span class="o">=</span> <span class="n">detections</span><span class="o">.</span><span class="n">get_anchors_coordinates</span><span class="p">(</span><span class="n">Position</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span>
@@ -1618,7 +1618,7 @@ Merged detections : 5
 </table>
 <hr />
 <h1 id="example-full-workflow">Example Full Workflow</h1>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">swatahvision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">swatahVision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sv</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span>
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;yolov8n.xml&quot;</span><span class="p">,</span>
@@ -1643,7 +1643,7 @@ Object: 0 Confidence: 0.87
 </code></pre></div>
 <hr />
 <h1 id="summary">Summary</h1>
-<p>The <code>Detections</code> class is the <strong>core structure used by SwatahVision for object detection results</strong>.</p>
+<p>The <code>Detections</code> class is the <strong>core structure used by swatahVision for object detection results</strong>.</p>
 <p>It helps developers to:</p>
 <ul>
 <li>Store detection results</li>
@@ -1655,10 +1655,6 @@ Object: 0 Confidence: 0.87
 </ul>
 <p>This makes it easier to build <strong>computer vision pipelines for real-world applications</strong>.</p>
 <hr />
-<h1 id="authors">Authors</h1>
-<p><strong>Atharva Kotkar</strong><br />
-<strong>Aarav Agrawal</strong><br />
-MIT Internship – Swatah AI</p>
 
 
 

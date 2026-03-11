@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../onnx/">
-      
-      
-        <link rel="next" href="../../examples/count_people_in_zone/">
       
       
         
@@ -23,7 +19,7 @@
     
     
       
-        <title>OpenVino - swatahVision</title>
+        <title>Model Card - swatahVision</title>
       
     
     
@@ -74,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openvino-runtime-engine-for-swatahvision" class="md-skip">
+        <a href="#model-card" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OpenVino
+              Model Card
             
           </span>
         </div>
@@ -315,13 +311,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../onnx/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../runtime/onnx/" class="md-tabs__link">
           
   
   
@@ -888,31 +882,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -930,7 +919,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -948,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../onnx/" class="md-nav__link">
+      <a href="../../runtime/onnx/" class="md-nav__link">
         
   
   
@@ -973,19 +962,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../runtime/openvino/" class="md-nav__link">
         
   
   
@@ -1001,7 +981,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1317,6 +1296,113 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-model-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Model Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-model-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Model Details
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-model-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Model Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Usage Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-training-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Training Details
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ethical-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Ethical Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1335,231 +1421,149 @@
   
 
 
-<h1 id="openvino-runtime-engine-for-swatahvision">OpenVINO Runtime Engine for swatahVision</h1>
-<p>This code creates a <strong>custom runtime engine</strong> that allows <strong>OpenVINO models</strong> to run inside the <strong>swatahVision framework</strong>.</p>
-<p>In simple terms, this code helps the system:</p>
-<ol>
-<li>Load an OpenVINO model</li>
-<li>Prepare an image so the model can understand it</li>
-<li>Run the model on the image</li>
-<li>Return the prediction results</li>
-</ol>
+<h1 id="model-card">Model Card</h1>
+<h2 id="1-model-overview">1. Model Overview</h2>
+<p><strong>Model Name:</strong> VisionNet-Lite<br />
+<strong>Version:</strong> 1.2.0<br />
+<strong>Task:</strong> Image Classification<br />
+<strong>Framework / Engine:</strong> ONNX / OpenVINO<br />
+<strong>Precision:</strong> FP32<br />
+<strong>License:</strong> Apache-2.0<br />
+<strong>Maintainer / Author:</strong> swatah.ai<br />
+<strong>Repository / Source:</strong> https://github.com/swatah-ai/visionnet-lite  </p>
+<p>VisionNet-Lite is a lightweight convolutional neural network designed for fast image classification on edge devices and CPU-based systems. The model focuses on maintaining good accuracy while keeping computational requirements low.</p>
 <hr />
-<h1 id="what-is-openvino">What is OpenVINO?</h1>
-<p><strong>OpenVINO</strong> is a toolkit developed by Intel that helps run AI models <strong>faster and more efficiently</strong>, especially on:</p>
+<h2 id="2-model-details">2. Model Details</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Architecture</td>
+<td>MobileNetV2-based CNN</td>
+</tr>
+<tr>
+<td>Input Size</td>
+<td>224 × 224 RGB</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>1000-class probability vector</td>
+</tr>
+<tr>
+<td>Precision</td>
+<td>FP32</td>
+</tr>
+<tr>
+<td>Engine</td>
+<td>ONNX Runtime / OpenVINO</td>
+</tr>
+<tr>
+<td>Device Support</td>
+<td>CPU / GPU</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-performance">3. Performance</h2>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Metric</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ImageNet-1K</td>
+<td>Top-1 Accuracy</td>
+<td>71.8%</td>
+</tr>
+<tr>
+<td>ImageNet-1K</td>
+<td>Top-5 Accuracy</td>
+<td>89.6%</td>
+</tr>
+<tr>
+<td>CIFAR-100</td>
+<td>Accuracy</td>
+<td>78.4%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-model-files">4. Model Files</h2>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Precision</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ONNX</td>
+<td>FP32</td>
+<td>https://models.example.com/visionnet-lite/onnx_fp32.onnx</td>
+</tr>
+<tr>
+<td>OpenVINO</td>
+<td>FP32</td>
+<td>https://models.example.com/visionnet-lite/openvino_fp32.zip</td>
+</tr>
+<tr>
+<td>OpenVINO</td>
+<td>INT8</td>
+<td>https://models.example.com/visionnet-lite/openvino_int8.zip</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-usage-example">5. Usage Example</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example usage</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">swatahVision</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">&quot;visionnet-lite&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">&quot;image.jpg&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="6-training-details">6. Training Details</h2>
 <ul>
-<li>CPUs</li>
-<li>GPUs</li>
-<li>Intel hardware</li>
-</ul>
-<p>It is commonly used for <strong>computer vision tasks</strong> such as:</p>
-<ul>
-<li>Image classification</li>
-<li>Object detection</li>
-<li>Face recognition</li>
-</ul>
-<hr />
-<h1 id="purpose-of-this-code">Purpose of This Code</h1>
-<p>This file creates a class called:</p>
-<div class="highlight"><pre><span></span><code>OpenVinoRuntimeEngine
-</code></pre></div>
-<p>This class connects:</p>
-<div class="highlight"><pre><span></span><code>swatahVision → OpenVINO Runtime
-</code></pre></div>
-<p>This allows swatahVision to <strong>run OpenVINO models easily</strong>.</p>
-<hr />
-<h1 id="libraries-used">Libraries Used</h1>
-<p>This code uses the following Python libraries:</p>
-<ul>
-<li><strong>openvino</strong> → runs the OpenVINO model</li>
-<li><strong>numpy</strong> → handles numerical data</li>
-<li><strong>opencv (cv2)</strong> → processes images</li>
-</ul>
-<hr />
-<h1 id="class-openvinoruntimeengine">Class: OpenVinoRuntimeEngine</h1>
-<p>This class extends the base class:</p>
-<div class="highlight"><pre><span></span><code>RuntimeEngine
-</code></pre></div>
-<p>It defines how the system should:</p>
-<ul>
-<li>load a model</li>
-<li>prepare the input image</li>
-<li>run the model</li>
-<li>return the results</li>
-</ul>
-<hr />
-<h1 id="1-loading-the-model">1. Loading the Model</h1>
-<p>Function:</p>
-<div class="highlight"><pre><span></span><code>load()
-</code></pre></div>
-<p>This function loads the OpenVINO model into memory.</p>
-<p>Steps performed:</p>
-<ol>
-<li>Select the hardware (CPU or GPU)</li>
-<li>Create an OpenVINO Core object</li>
-<li>Read the model file</li>
-<li>Compile the model for the selected device</li>
-</ol>
-<p>Example hardware options:</p>
-<div class="highlight"><pre><span></span><code>CPU → runs on processor
-GPU → runs on graphics card
-</code></pre></div>
-<p>After loading the model, the function also collects information about:</p>
-<ul>
-<li>input names</li>
-<li>input shapes</li>
-<li>input data types</li>
-<li>output names</li>
-</ul>
-<hr />
-<h1 id="2-running-the-model-inference">2. Running the Model (Inference)</h1>
-<p>Function:</p>
-<div class="highlight"><pre><span></span><code>infer()
-</code></pre></div>
-<p>This function performs the <strong>actual prediction</strong>.</p>
-<p>Steps:</p>
-<ol>
-<li>Receive an input image</li>
-<li>Prepare the image using preprocessing</li>
-<li>Send the image to the compiled model</li>
-<li>Get the prediction results</li>
-</ol>
-<p>The function returns:</p>
-<div class="highlight"><pre><span></span><code>raw_output
-meta_information
-</code></pre></div>
-<hr />
-<h1 id="3-getting-model-information">3. Getting Model Information</h1>
-<p>Function:</p>
-<div class="highlight"><pre><span></span><code>get_model_info()
-</code></pre></div>
-<p>This function extracts important details from the model.</p>
-<p>It collects:</p>
-<ul>
-<li>Input names</li>
-<li>Input shapes</li>
-<li>Input data types</li>
-<li>Output names</li>
-</ul>
-<p>This information helps the engine understand <strong>what format the model expects</strong>.</p>
-<hr />
-<h1 id="4-image-preprocessing">4. Image Preprocessing</h1>
-<p>Function:</p>
-<div class="highlight"><pre><span></span><code>preprocess()
-</code></pre></div>
-<p>Before sending an image to the model, the image must be prepared correctly.</p>
-<p>This function performs several steps to prepare the image.</p>
-<hr />
-<h2 id="step-1-resize-the-image">Step 1: Resize the Image</h2>
-<p>The image is resized to match the size expected by the model.</p>
-<hr />
-<h2 id="step-2-keep-image-proportions-letterbox">Step 2: Keep Image Proportions (Letterbox)</h2>
-<p>Instead of stretching the image, the code keeps the original shape.</p>
-<p>This is done using a technique called <strong>letterboxing</strong>.</p>
-<p>The process:</p>
-<ol>
-<li>Resize the image</li>
-<li>Add padding around the image</li>
-</ol>
-<p>This prevents distortion.</p>
-<hr />
-<h2 id="step-3-rearrange-image-format">Step 3: Rearrange Image Format</h2>
-<p>Normally images are stored as:</p>
-<div class="highlight"><pre><span></span><code>(H, W, C)
-Height, Width, Channels
-</code></pre></div>
-<p>But most AI models expect:</p>
-<div class="highlight"><pre><span></span><code>(C, H, W)
-Channels, Height, Width
-</code></pre></div>
-<p>So the code rearranges the image format.</p>
-<hr />
-<h2 id="step-4-handle-single-or-multiple-images">Step 4: Handle Single or Multiple Images</h2>
-<p>The engine can process:</p>
-<ul>
-<li>a <strong>single image</strong></li>
-<li><strong>multiple images at once</strong></li>
-</ul>
-<p>If needed, the code automatically adds a <strong>batch dimension</strong>.</p>
-<hr />
-<h2 id="step-5-convert-image-data-type">Step 5: Convert Image Data Type</h2>
-<p>Different models expect different input types such as:</p>
-<ul>
-<li><code>float32</code></li>
-<li><code>uint8</code></li>
-</ul>
-<p>The code automatically converts the image to the correct type.</p>
-<hr />
-<h1 id="letterbox-function">Letterbox Function</h1>
-<p>The <code>letterbox()</code> function resizes an image <strong>without stretching it</strong>.</p>
-<p>Steps performed:</p>
-<ol>
-<li>Calculate how much the image should scale</li>
-<li>Resize the image</li>
-<li>Add padding to match the required size</li>
-</ol>
-<p>Example:</p>
-<p>Original image:</p>
-<div class="highlight"><pre><span></span><code>400 × 300
-</code></pre></div>
-<p>Model input size:</p>
-<div class="highlight"><pre><span></span><code>640 × 640
-</code></pre></div>
-<p>The code:</p>
-<ul>
-<li>resizes the image</li>
-<li>adds padding around it</li>
-</ul>
-<p>This keeps the image looking natural.</p>
-<hr />
-<h1 id="metadata-returned">Metadata Returned</h1>
-<p>The preprocessing function also returns <strong>metadata information</strong>.</p>
-<p>This includes:</p>
-<div class="highlight"><pre><span></span><code>scale
-padding_x
-padding_y
-</code></pre></div>
-<p>This data can later be used to adjust predictions back to the original image size.</p>
-<hr />
-<h1 id="overall-workflow">Overall Workflow</h1>
-<p>The full process works like this:</p>
-<div class="highlight"><pre><span></span><code>Load Model
-      ↓
-Receive Image
-      ↓
-Preprocess Image
-      ↓
-Run Model
-      ↓
-Return Prediction
-</code></pre></div>
-<hr />
-<h1 id="why-this-code-is-useful">Why This Code is Useful</h1>
-<p>This engine makes it easier to run OpenVINO models in swatahVision.</p>
-<p>It provides:</p>
-<ul>
-<li>automatic image preprocessing</li>
-<li>support for CPU and GPU</li>
-<li>support for batch inputs</li>
-<li>simple model execution</li>
+<li><strong>Training Dataset:</strong> ImageNet-1K + custom augmented dataset  </li>
+<li><strong>Data Preprocessing:</strong> resize to 256 → center crop 224, normalization  </li>
+<li><strong>Training Framework:</strong> PyTorch  </li>
+<li><strong>Epochs / Batch Size:</strong> 120 epochs / batch size 128  </li>
+<li><strong>Hardware Used:</strong> NVIDIA RTX 4090 GPU cluster  </li>
 </ul>
 <hr />
-<h1 id="summary">Summary</h1>
-<p>This code acts as a bridge between:</p>
-<div class="highlight"><pre><span></span><code>swatahVision Framework
-        ↓
-OpenVINO Runtime Engine
-        ↓
-AI Model
-</code></pre></div>
-<p>It simplifies the process of:</p>
+<h2 id="7-limitations">7. Limitations</h2>
 <ul>
-<li>loading models</li>
-<li>preparing images</li>
-<li>running predictions</li>
-<li>retrieving results</li>
+<li>Performance may degrade on extremely small objects.  </li>
+<li>Accuracy may drop in low-light or noisy environments.  </li>
+<li>Not optimized for medical or safety-critical applications.  </li>
 </ul>
-<p>This makes it easier to build <strong>computer vision applications using OpenVINO models</strong>.</p>
+<hr />
+<h2 id="8-ethical-considerations">8. Ethical Considerations</h2>
+<ul>
+<li>Dataset bias may influence predictions.  </li>
+<li>Should not be used for surveillance or sensitive biometric decisions without proper evaluation.  </li>
+<li>Ensure responsible deployment and validation for production environments.  </li>
+</ul>
+<hr />
+<h2 id="9-citation">9. Citation</h2>
+<p>```bibtex
+@model{visionnet_lite,
+  author = {swatah.ai},
+  year = {2026},
+  title = {VisionNet-Lite Image Classification Model}
+}</p>
 
 
 

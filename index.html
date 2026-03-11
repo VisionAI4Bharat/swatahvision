@@ -189,7 +189,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
-    VisionAI4Bharat/SwatahVision
+    VisionAI4Bharat/swatahVision
   </div>
 </a>
       </div>
@@ -384,7 +384,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
-    VisionAI4Bharat/SwatahVision
+    VisionAI4Bharat/swatahVision
   </div>
 </a>
     </div>
@@ -1546,7 +1546,8 @@
 
 <h1 id="swatahvision">swatahVision</h1>
 <p align="center">
-  <img src="assets/cover.png" alt="SwatahVision Cover" width="100%">
+  <img src="https://raw.githubusercontent.com/visionai4bharat/swatahVision/main/assets/cover.png" 
+       alt="swatahVision Cover" width="100%">
 </p>
 
 <h3 id="an-open-source-vision-ai-stack-for-real-world-applications">An open-source Vision AI stack for real-world applications</h3>
@@ -1618,13 +1619,13 @@ sv.Detections.from_ssd(...)
 </ul>
 <h2 id="install">Install</h2>
 <h3 id="from-source">From source</h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/VisionAI4Bharat/swatahvision.git
-<span class="nb">cd</span><span class="w"> </span>swatahvision
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/VisionAI4Bharat/swatahVision.git
+<span class="nb">cd</span><span class="w"> </span>swatahVision
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
 <h2 id="quickstart">Quickstart</h2>
 <h3 id="load-a-model-and-run-inference">Load a model and run inference</h3>
-<div class="highlight"><pre><span></span><code>import swatahvision as sv
+<div class="highlight"><pre><span></span><code>import swatahVision as sv
 
 model = sv.Model(
     model=&quot;path/to/model.onnx&quot;,
@@ -1636,7 +1637,7 @@ outputs = model(image, input_size=(640, 640))
 </code></pre></div>
 <h3 id="detection">Detection</h3>
 <h4 id="convert-raw-outputs-to-detections">Convert raw outputs to Detections</h4>
-<div class="highlight"><pre><span></span><code>import swatahvision as sv
+<div class="highlight"><pre><span></span><code>import swatahVision as sv
 
 detections = sv.Detections.from_yolo(
     outputs,
@@ -1654,7 +1655,7 @@ persons = detections[detections.class_id == 0]
 </code></pre></div>
 <h4 id="draw-boxes">Draw boxes</h4>
 <div class="highlight"><pre><span></span><code>import cv2
-import swatahvision as sv
+import swatahVision as sv
 
 frame = cv2.imread(&quot;image.jpg&quot;)
 
