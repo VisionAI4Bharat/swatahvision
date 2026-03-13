@@ -1,105 +1,122 @@
 import swatahVision as sv
 import numpy as np
+import cv2
 
 # ---------------------------------------------
-# Configure label annotation
+# CONFIG
 # ---------------------------------------------
-label_annotator = sv.LabelAnnotator(
-    color=sv.Color.YELLOW,
-    text_color=sv.Color.BLACK,
-    text_position=sv.Position.TOP_LEFT,
-    text_scale=0.7,
-    text_padding=8,
-    smart_position=False,
-)
+MODEL_PATH = "blaze_fixed.onnx"
+IMAGE_PATH = "your_image.jpg"
+
+CONF_THRESH = 0.5
 
 # ---------------------------------------------
-# Configure bounding box annotation
-# ---------------------------------------------
-box_annotator = sv.BoxAnnotator(sv.Color.YELLOW)
-
-# ---------------------------------------------
-# Load BlazeFace ONNX model
+# Load model
 # ---------------------------------------------
 model = sv.Model(
-    model="blazeface.onnx",
+    model=MODEL_PATH,
     engine=sv.Engine.ONNX,
     hardware=sv.Hardware.CPU
 )
 
+# Access ONNX runtime session
+session = model.runtime_engine.session
+
 # ---------------------------------------------
 # Load image
 # ---------------------------------------------
-image = sv.Image.load_from_file("assets/face.jpg")
+image = sv.Image.load_from_file(IMAGE_PATH)
+img = np.array(image)
+H, W = img.shape[:2]
 
 # ---------------------------------------------
-# Run inference
+# Preprocess for BlazeFace
 # ---------------------------------------------
-outs = model(image)
+img128 = cv2.resize(img, (128,128))
 
-# Remove batch dimension
-scores = outs[0][0]   # (896,1)
-boxes = outs[1][0]    # (896,16)
-
-# Apply sigmoid to scores
-scores = 1 / (1 + np.exp(-scores))
-
-img_np = np.array(image)
-h, w = img_np.shape[:2]
-
-xyxy = []
-conf = []
+img_np = img128.astype(np.float32) / 255.0
+img_np = np.transpose(img_np, (2,0,1))[None,...]
 
 # ---------------------------------------------
-# Convert outputs to bounding boxes
+# Run inference (ONLY image input)
 # ---------------------------------------------
-for i in range(len(scores)):
+outs = session.run(
+    None,
+    {
+        "image": img_np
+    }
+)
 
-    score = float(scores[i][0])
+# ---------------------------------------------
+# Parse outputs
+# ---------------------------------------------
+boxes = outs[0][0]
+print("Detections returned:-", boxes.shape[0])
 
-    # lower threshold for BlazeFace
-    if score > 0.2:
+if boxes.ndim == 1:
+    boxes = boxes.reshape(1,16)
 
-        y1, x1, y2, x2 = boxes[i][:4]
+scores = outs[1][0] if len(outs) > 1 else np.ones(len(boxes))
 
-        x1 = int(x1 * w)
-        y1 = int(y1 * h)
-        x2 = int(x2 * w)
-        y2 = int(y2 * h)
-
-        xyxy.append([x1, y1, x2, y2])
-        conf.append(score)
+# Handle no detections
+if boxes.shape[0] == 0:
+    print("No faces detected")
 
 # ---------------------------------------------
 # Draw detections
 # ---------------------------------------------
-if len(xyxy) > 0:
+for det, score in zip(boxes, scores):
+    print("Score:", score)
+    if score < CONF_THRESH:
+        continue
 
-    xyxy = np.array(xyxy)
-    conf = np.array(conf)
+    (
+        top_y, top_x, bot_y, bot_x,
+        ley_x, ley_y, rey_x, rey_y,
+        nose_x, nose_y, mou_x, mou_y,
+        lea_x, lea_y, rea_x, rea_y
+    ) = det
 
-    detections = sv.Detections(
-        xyxy=xyxy,
-        confidence=conf
+    x1 = int(top_x * W)
+    y1 = int(top_y * H)
+    x2 = int(bot_x * W)
+    y2 = int(bot_y * H)
+
+    if x2-x1 < 5 or y2-y1 < 5:
+        continue
+
+    # Draw bounding box
+    cv2.rectangle(img, (x1,y1), (x2,y2), (0,255,0), 3)
+
+    # Draw confidence
+    cv2.putText(
+        img,
+        f"{score:.2f}",
+        (x1, y1-5),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.6,
+        (0,255,0),
+        2
     )
 
-    image = label_annotator.annotate(
-        scene=image,
-        detections=detections
-    )
+    # Landmarks
+    landmarks = [
+        (ley_x, ley_y),
+        (rey_x, rey_y),
+        (nose_x, nose_y),
+        (mou_x, mou_y),
+        (lea_x, lea_y),
+        (rea_x, rea_y)
+    ]
 
-    image = box_annotator.annotate(
-        scene=image,
-        detections=detections
-    )
-
-else:
-    print("No faces detected")
+    for nx, ny in landmarks:
+        cx = int(nx * W)
+        cy = int(ny * H)
+        cv2.circle(img, (cx,cy), 4, (0,0,255), -1)
 
 # ---------------------------------------------
-# Show output
+# Show result
 # ---------------------------------------------
-try:
-    sv.Image.show(image=image)
-except:
-    pass
+cv2.imshow("BlazeFace Result", img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
